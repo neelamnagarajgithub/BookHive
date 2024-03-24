@@ -78,9 +78,7 @@ window.onhashchange = function () {
     const html = `<h1>Payment Success</h1>
     <a href="https://book-hive-silk.vercel.app/">Go Back To home Page</a>`;
     document.body.innerHTML = html;
-  } else {
-    document.body.innerHTML = "<h1>Page Not found</h1>";
-  }
+  } 
 };
 
 // Trigger the hashchange event when the page loads
