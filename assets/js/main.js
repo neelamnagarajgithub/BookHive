@@ -18,7 +18,7 @@ window.onhashchange = function () {
           )
           .join("");
         document.body.innerHTML = html;
-      })
+      }).catch(error => console.error('Error:', error));
 
 
 //Handling the sending of book data to the backend for getting the payments
