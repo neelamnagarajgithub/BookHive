@@ -3,8 +3,8 @@ const baseurl="https://bookhive-server.onrender.com/api/books";
 fetch(baseurl, { method:"GET" })
   .then(response => response.json()) 
   .then(data => {
-    console.log(data);
-    const html = data.map(book => `
+    console.log(data[0]);
+    const html = data[0].map(book => `
       <div>
         <h2>${book.title}</h2>
         <p>${book.description}</p>
