@@ -22,7 +22,7 @@ window.onhashchange = function () {
 
 
 //Handling the sending of book data to the backend for getting the payments
-      function buyBook(book) {
+window.buyBook = function(book) {
         const bookData = JSON.parse(decodeURIComponent(book));
         window.location.hash = '#/payment';
         // Now you can use bookData to send a POST request
