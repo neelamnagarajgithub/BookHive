@@ -38,6 +38,9 @@ window.onhashchange = function () {
             );
             const data = await response.json();
             console.log(data);
+            
+            window.location.href = data.url;
+
           }
           window.location.hash = '#/payment';
           createPaymentIntent();
