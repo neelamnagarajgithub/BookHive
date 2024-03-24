@@ -69,14 +69,8 @@ window.onhashchange = function () {
 
   }
   if(window.location.hash==="#/payment") {
-    fetch("https://book-hive-silk.vercel.app/#/payment",{
-      method:"GET",})
-      .then((response) => response.json())
-      .then((data) =>{
-        const html=`
-        <a href="${data.url}">Click Here</a>`
-        document.body.innerHTML = html;
-      })
+    const html=`<a href="${url}">Click here</a>`
+    document.body.innerHTML = html;
   }
   if (window.location.hash === "#/user/paymentsuccess") {
     const html = `<div>Payment Success</div>`;
