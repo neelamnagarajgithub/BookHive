@@ -12,7 +12,7 @@ window.onhashchange = function () {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button onclick="buyBook('${JSON.stringify(book)}')">Buy</button>
+            <button onclick="buyBook('${JSON.stringify(book).replace(/'/g, "&#39;")}')">Buy</button>
           </div>
         `
           )
