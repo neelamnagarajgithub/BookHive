@@ -1,0 +1,20 @@
+{
+  "name": "bookhive",
+  "version": "1.0.0",
+  "description": "Book Hive is an online book store where you can get  your favorite Books at your doorstep . It  is Ecommerce Website built using Html5 ,CSS3, JS ,Nodejs, MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neelamnagarajgithub/BookHive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neelamnagarajgithub/BookHive/issues"
+  },
+  "homepage": "https://github.com/neelamnagarajgithub/BookHive#readme"
+}
