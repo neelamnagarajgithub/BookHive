@@ -29,7 +29,7 @@ window.onhashchange = function () {
       },
     });
   }
-  if (window.location.hash === "#/user/#paymentsuccess") {
+  if (window.location.hash === "#/user/paymentsuccess") {
     const html = `<div>Payment Success</div>`;
     document.body.innerHTML = html;
   } else {
