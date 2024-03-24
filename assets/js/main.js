@@ -10,16 +10,18 @@ window.onhashchange = function() {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button>Buy</button>
+            <button onclick="window.location.hash='#/payment'">Buy</button>
           </div>
         `).join('');
         document.body.innerHTML = html;
       }) 
       .catch(error => console.error('Error:', error)); 
   }
-  else if (window.location.hash === '#/user/login') { 
-    fetch(baseurl)
-  }
+  //  else if (window.location.hash === '#/user/login') { 
+  //  fetch(`${baseurl}/api/login`,{method:"POST"})
+
+  // }
+  // else if
   else {
     document.body.innerHTML = '<h1>Page Not found</h1>';
   }
