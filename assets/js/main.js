@@ -8,7 +8,7 @@ fetch(baseurl, { method:"GET" })
       <div>
         <h2>${book.title}</h2>
         <p>${book.description}</p>
-        <img src="book.coverImage" alt="Image">
+        <img src="${book.coverImage}" alt="Image">
       </div>
     `).join('');
     document.body.innerHTML = html;
