@@ -12,7 +12,7 @@ window.onhashchange = function () {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button onclick="buyBook('${encodeURIComponent(JSON.stringify(book))}')">Buy</button>
+            <button onclick="buyBook()">Buy</button>
           </div>
         `
           )
@@ -21,24 +21,55 @@ window.onhashchange = function () {
       }).catch(error => console.error('Error:', error));
 
 
-//Handling the sending of book data to the backend for getting the payments
-window.buyBook = function(book) {
-        const bookData = JSON.parse(decodeURIComponent(book));
-        window.location.hash = '#/payment';
-        // Now you can use bookData to send a POST request
-        fetch(`${baseurl}/api/create-checkout-session`, {
+
+
+//'${encodeURIComponent(JSON.stringify(book))}'
+// //Handling the sending of book data to the backend for getting the payments
+// window.buyBook = function(book) {
+//         const bookData = JSON.parse(decodeURIComponent(book));
+//         window.location.hash = '#/payment';
+//         // Now you can use bookData to send a POST request
+//         fetch(`${baseurl}/api/create-checkout-session`, {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify(bookData),
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//           console.log(data);
+//         })
+//         .catch(error => console.error('Error:', error));
+//       }
+
+  function buyBook() {
+    async function createPaymentIntent() {
+      const response = await fetch(
+        "https://bookhive-server.onrender.com/api/create-checkout-session",
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(bookData),
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => console.error('Error:', error));
-      }
+          body: JSON.stringify({
+            book: {
+              _id: book._id,
+              title: book.title,
+            },
+          }),
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    }
+    window.location.hash = '#/payment';
+    createPaymentIntent();
+  }
+
+
+
+
   }
   if (window.location.hash === "#/user/paymentsuccess") {
     const html = `<div>Payment Success</div>`;
