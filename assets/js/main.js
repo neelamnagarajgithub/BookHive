@@ -12,13 +12,14 @@ window.onhashchange = function () {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button onclick="buyBook(${book})">Buy</button>
+            <button onclick="buyBook(${JSON.stringify(book)})">Buy</button>
           </div>
         `
           )
           .join("");
         document.body.innerHTML = html;
-        window.buyBook = function(book){
+        window.buyBook = function(booke){
+          const book = JSON.parse(booke);
           async function createPaymentIntent() {
             const response = await fetch(
               "https://bookhive-server.onrender.com/api/create-checkout-session",
