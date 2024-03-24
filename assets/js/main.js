@@ -12,13 +12,13 @@ window.onhashchange = function () {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button onclick="buyBook()">Buy</button>
+            <button onclick="buyBook(book)">Buy</button>
           </div>
         `
           )
           .join("");
         document.body.innerHTML = html;
-        function buyBook() {
+        window.buyBook = function(book){
           async function createPaymentIntent() {
             const response = await fetch(
               "https://bookhive-server.onrender.com/api/create-checkout-session",
