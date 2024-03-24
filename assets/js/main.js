@@ -12,7 +12,7 @@ window.onhashchange = function () {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
-            <button onclick="buyBook('${JSON.stringify(book).replace(/'/g, "&#39;")}')">Buy</button>
+            <button onclick="buyBook('${encodeURIComponent(JSON.stringify(book))}')">Buy</button>
           </div>
         `
           )
@@ -23,7 +23,7 @@ window.onhashchange = function () {
 
 //Handling the sending of book data to the backend for getting the payments
       function buyBook(book) {
-        const bookData = JSON.parse(book);
+        const bookData = JSON.parse(decodeURIComponent(book));
         window.location.hash = '#/payment';
         // Now you can use bookData to send a POST request
         fetch(`${baseurl}/api/create-checkout-session`, {
