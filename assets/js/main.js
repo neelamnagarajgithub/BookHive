@@ -25,6 +25,7 @@ window.onhashchange = function() {
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
+            <button>Buy</button>
           </div>
         `).join('');
         document.body.innerHTML = html;
