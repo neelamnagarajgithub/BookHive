@@ -18,6 +18,29 @@ window.onhashchange = function () {
           )
           .join("");
         document.body.innerHTML = html;
+        function buyBook() {
+          async function createPaymentIntent() {
+            const response = await fetch(
+              "https://bookhive-server.onrender.com/api/create-checkout-session",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  book: {
+                    _id: book._id,
+                    title: book.title,
+                  },
+                }),
+              }
+            );
+            const data = await response.json();
+            console.log(data);
+          }
+          window.location.hash = '#/payment';
+          createPaymentIntent();
+        }      
       }).catch(error => console.error('Error:', error));
 
 
@@ -43,29 +66,6 @@ window.onhashchange = function () {
 //         .catch(error => console.error('Error:', error));
 //       }
 
-  function buyBook() {
-    async function createPaymentIntent() {
-      const response = await fetch(
-        "https://bookhive-server.onrender.com/api/create-checkout-session",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            book: {
-              _id: book._id,
-              title: book.title,
-            },
-          }),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
-    }
-    window.location.hash = '#/payment';
-    createPaymentIntent();
-  }
 
 
 
