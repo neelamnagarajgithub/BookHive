@@ -75,7 +75,8 @@ window.onhashchange = function () {
   //   document.body.innerHTML = html;
   // }
   if (window.location.hash === "#/user/paymentsuccess") {
-    const html = `<div>Payment Success</div>`;
+    const html = `<h1>Payment Success</h1>
+    <a href="https://book-hive-silk.vercel.app/">Go Back To home Page</a>`;
     document.body.innerHTML = html;
   } else {
     document.body.innerHTML = "<h1>Page Not found</h1>";
