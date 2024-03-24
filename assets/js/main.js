@@ -1,23 +1,8 @@
-const baseurl="https://bookhive-server.onrender.com/api/books";
-
-// fetch(baseurl, { method:"GET" })
-//   .then(response => response.json()) 
-//   .then(data => {
-//     console.log(data);
-//     const html = data.allbooks.map(book => `
-//       <div>
-//         <h2>${book.title}</h2>
-//         <p>${book.description}</p>
-//         <img src="${book.coverImage}" alt="Image">
-//       </div>
-//     `).join('');
-//     document.body.innerHTML = html;
-//   }) 
-//   .catch(error => console.error('Error:', error)); 
+const baseurl="https://bookhive-server.onrender.com";
 
 window.onhashchange = function() {
   if (window.location.hash === '#/books') {
-    fetch(baseurl, { method:"GET" })
+    fetch(`${baseurl}/api/books`, { method:"GET" })
       .then(response => response.json()) 
       .then(data => {
         const html = data.allbooks.map(book => `
@@ -31,8 +16,12 @@ window.onhashchange = function() {
         document.body.innerHTML = html;
       }) 
       .catch(error => console.error('Error:', error)); 
-  } else {
-    document.body.innerHTML = '<h1>Welcome to the homepage!</h1>';
+  }
+  else if (window.location.hash === '#/user/login') { 
+    fetch(baseurl)
+  }
+  else {
+    document.body.innerHTML = '<h1>Page Not found</h1>';
   }
 }
 
