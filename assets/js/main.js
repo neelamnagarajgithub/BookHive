@@ -1,31 +1,41 @@
-const baseurl="https://bookhive-server.onrender.com";
+const baseurl = "https://bookhive-server.onrender.com";
 
-window.onhashchange = function() {
-  if (window.location.hash === '#/books') {
-    fetch(`${baseurl}/api/books`, { method:"GET" })
-      .then(response => response.json()) 
-      .then(data => {
-        const html = data.allbooks.map(book => `
+window.onhashchange = function () {
+  if (window.location.hash === "#/books") {
+    fetch(`${baseurl}/api/books`, { method: "GET" })
+      .then((response) => response.json())
+      .then((data) => {
+        const html = data.allbooks
+          .map(
+            (book) => `
           <div>
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
             <button onclick="window.location.hash='#/payment'">Buy</button>
           </div>
-        `).join('');
+        `
+          )
+          .join("");
         document.body.innerHTML = html;
-      }) 
-      .catch(error => console.error('Error:', error)); 
+      })
+      .catch((error) => console.error("Error:", error));
   }
-  //  else if (window.location.hash === '#/user/login') { 
-  //  fetch(`${baseurl}/api/login`,{method:"POST"})
-
-  // }
-  // else if
-  else {
-    document.body.innerHTML = '<h1>Page Not found</h1>';
+  if (window.location.hash === "#/payment") {
+    fetch(`${baseurl}/api/payment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
-}
+  if (window.location.hash === "#/user/#paymentsuccess") {
+    const html = `<div>Payment Success</div>`;
+    document.body.innerHTML = html;
+  } else {
+    document.body.innerHTML = "<h1>Page Not found</h1>";
+  }
+};
 
 // Trigger the hashchange event when the page loads
 window.onhashchange();
