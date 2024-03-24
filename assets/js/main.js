@@ -68,10 +68,10 @@ window.onhashchange = function () {
 //       }
 
   }
-  if(window.location.hash==="#/payment") {
-    const html=`<a href="${url}">Click here</a>`
-    document.body.innerHTML = html;
-  }
+  // if(window.location.hash==="#/payment") {
+  //   const html=`<a href="${url}">Click here</a>`
+  //   document.body.innerHTML = html;
+  // }
   if (window.location.hash === "#/user/paymentsuccess") {
     const html = `<div>Payment Success</div>`;
     document.body.innerHTML = html;
