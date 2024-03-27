@@ -1,5 +1,5 @@
 #preloader{
-    background:#000 url(../images/Spinner-1s-200px.gif) no-repeat center center;
+    background:#fff url(../images/Spinner-1s-200px.gif) no-repeat center center;
     background-size: 15%;
     height:100vh;
     width:100%;

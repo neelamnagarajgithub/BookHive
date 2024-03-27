@@ -1,6 +1,15 @@
 const baseurl = "https://bookhive-server.onrender.com";
 
+function showLoader() {
+  document.getElementById('preloader').style.display = 'block';
+}
+
+function hideLoader() {
+  document.getElementById('preloader').style.display = 'none';
+}
+
 window.onhashchange = function () {
+  showLoader();
   if (window.location.hash === "#/books") {
     fetch(`${baseurl}/api/books`, { method: "GET" })
       .then((response) => response.json())
@@ -45,6 +54,7 @@ window.onhashchange = function () {
           }
           createPaymentIntent();
         };
+        hideLoader();
       })
       .catch((error) => console.error("Error:", error));
   }
