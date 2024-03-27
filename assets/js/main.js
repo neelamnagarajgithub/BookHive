@@ -1,11 +1,11 @@
 const baseurl = "https://bookhive-server.onrender.com";
 
 function showLoader() {
-  document.getElementById('preloader').style.display = 'block';
+  document.getElementById("preloader").style.display = "block";
 }
 
 function hideLoader() {
-  document.getElementById('preloader').style.display = 'none';
+  document.getElementById("preloader").style.display = "none";
 }
 
 window.onhashchange = function () {
@@ -49,8 +49,9 @@ window.onhashchange = function () {
             );
             const data = await response.json();
             console.log(data);
-
+            showLoader();
             window.location.href = data.url;
+            hideLoader();
           }
           createPaymentIntent();
         };
