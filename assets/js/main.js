@@ -64,6 +64,9 @@ window.onhashchange = function () {
   </div>`;
     document.body.innerHTML = html;
   }
+  if (window.location.hash === "" || window.location.hash === "#/") {
+    document.body.className = 'home-page';
+  }
 };
 
 // Trigger the hashchange event when the page loads

@@ -133,7 +133,7 @@
     font-size: 16px;
     cursor: pointer;
   }
-  body {
+  .home-page{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('../images/Designer.png'); /* Replace with your background image URL */
     background-size: cover;
     background-position: center;
