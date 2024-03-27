@@ -17,7 +17,7 @@ window.onhashchange = function () {
         const html = data.allbooks
           .map(
             (book) => `
-          <div>
+          <div class="book-item">
             <h2>${book.title}</h2>
             <p>${book.description}</p>
             <img src="${book.coverImage}" alt="Image">
@@ -28,7 +28,7 @@ window.onhashchange = function () {
         `
           )
           .join("");
-        document.body.innerHTML = html;
+        document.body.innerHTML = `<div class="container">${html}</div>`;
         window.buyBook = function (booke) {
           const book = JSON.parse(booke);
           async function createPaymentIntent() {
