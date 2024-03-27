@@ -55,3 +55,26 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .payment-success {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .payment-success h1 {
+    color: green;
+    margin-bottom: 20px;
+  }
+  
+  .payment-success p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .home-link {
+    background-color: #008CBA; /* Blue */
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 16px;
+  }

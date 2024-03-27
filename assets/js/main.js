@@ -57,8 +57,11 @@ window.onhashchange = function () {
       .catch((error) => console.error("Error:", error));
   }
   if (window.location.hash === "#/user/paymentsuccess") {
-    const html = `<h1>Payment Success</h1>
-    <a href="https://book-hive-silk.vercel.app/">Go Back To home Page</a>`;
+    const html = `<div class="payment-success">
+    <h1>Payment Success</h1>
+    <p>Thank you for your purchase! Your transaction has been completed, and a receipt for your purchase has been emailed to you.</p>
+    <a href="https://book-hive-silk.vercel.app/" class="home-link">Go Back To Home Page</a>
+  </div>`;
     document.body.innerHTML = html;
   }
 };
