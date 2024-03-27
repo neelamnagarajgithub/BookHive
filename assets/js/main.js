@@ -48,10 +48,7 @@ window.onhashchange = function () {
               }
             );
             const data = await response.json();
-            console.log(data);
-            showLoader();
             window.location.href = data.url;
-            hideLoader();
           }
           createPaymentIntent();
         };
