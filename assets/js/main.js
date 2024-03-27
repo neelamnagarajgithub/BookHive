@@ -14,6 +14,7 @@ window.onhashchange = function () {
     document.body.className = 'home-page';
   }
   if (window.location.hash === "#/books") {
+    document.body.className = '';
     fetch(`${baseurl}/api/books`, { method: "GET" })
       .then((response) => response.json())
       .then((data) => {
