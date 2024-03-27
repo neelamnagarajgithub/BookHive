@@ -10,6 +10,9 @@ function hideLoader() {
 
 window.onhashchange = function () {
   showLoader();
+  if (window.location.hash === "" || window.location.hash === "#/") {
+    document.body.className = 'home-page';
+  }
   if (window.location.hash === "#/books") {
     fetch(`${baseurl}/api/books`, { method: "GET" })
       .then((response) => response.json())
